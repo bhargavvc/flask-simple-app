@@ -19,7 +19,7 @@ The Jenkinsfile uses the **Scripted Pipeline Syntax**:
 - The `node` block runs the pipeline on an agent (a node) configured in Jenkins. This can be a specific machine or a Docker container set up as a Jenkins agent.
 - Stages (`stage`) represent distinct steps in the pipeline.
 - **Environment Variables**: Jenkins provides built-in variables like `${BUILD_NUMBER}`, which gives each build a unique identifier.
-
+ 
 ---
 
 ### **Stage 1: Clone Repository**
