@@ -2,57 +2,11 @@ Step-by-step explanation of the entire process of building a Docker-Jenkins CI/C
 
 ---
 
-### What is a CI/CD Pipeline?
+[Step by Step Guide](#Step-by-Step-Guide)
+[Theory](#Notes-CI-CD-Pipeline)
 
-**CI/CD** stands for **Continuous Integration/Continuous Deployment (or Delivery)**. It’s a set of practices and tools designed to help developers integrate their code changes frequently, get them tested automatically, and then deploy them to production or a staging environment in an automated way. The benefits of CI/CD include:
 
-- Ensuring code integrations happen smoothly.
-- Automating testing and building steps so that issues are caught early.
-- Reducing manual, repetitive work for developers and operations.
-- Speeding up the delivery cycle, allowing faster updates and improvements.
-
-When we talk about a **CI/CD pipeline**, we’re describing a connected series of steps that start with a code change in a repository (like GitHub) and end with that updated code being deployed and running in an environment (like a container on a server).
-
----
-
-### Our Example Scenario
-
-In this tutorial, we are focusing on deploying a simple Python web application using a CI/CD pipeline that involves several key tools and platforms:
-
-1. **Git & GitHub**: For version controlling our code and hosting it remotely.
-2. **Jenkins**: An automation server that will run our pipeline steps. It will:
-   - Pull the latest code changes.
-   - Build our Docker image.
-   - Push the Docker image to Docker Hub.
-   - Pull the image back and run it as a container.
-3. **Docker & Docker Hub**: For containerizing our application. Docker Hub is a public registry where we store and retrieve our application’s Docker images.
-
-**The Flow**:
-
-- You make changes to your local code and push them to GitHub.
-- Jenkins polls GitHub regularly. When it detects a new commit (a code update), it triggers a pipeline.
-- That pipeline builds a Docker image of the new application version and pushes it to Docker Hub.
-- Jenkins then deploys this new image as a running container on your server.
-- The updated application is now available to users through the container’s exposed port.
-
-This means every time you push a code change to GitHub, your running application will update automatically without you having to do all the manual steps.
-
----
-
-### Prerequisites and Setup
-
-We assume a few things:
-
-- You have a machine (like an Ubuntu server or VM) where you will install Java, Git, Jenkins, and Docker.
-- You have a GitHub account (for remote code repository).
-- You have a Docker Hub account (to store built images).
-
-**Why these prerequisites?**  
-Jenkins requires Java to run, Git is necessary for pulling code, and Docker is required to build and run containers. GitHub and Docker Hub are cloud services that will host your code and images respectively.
-
----
-
-### Step-by-Step Guide
+# Step by Step Guide
 
 #### 1. Installing/Updating Java
 
@@ -482,6 +436,58 @@ What we have done is establish a fully automated pipeline:
 
 ---
 
+# Notes CI CD Pipeline
+
+### What is a CI/CD Pipeline?
+
+**CI/CD** stands for **Continuous Integration/Continuous Deployment (or Delivery)**. It’s a set of practices and tools designed to help developers integrate their code changes frequently, get them tested automatically, and then deploy them to production or a staging environment in an automated way. The benefits of CI/CD include:
+
+- Ensuring code integrations happen smoothly.
+- Automating testing and building steps so that issues are caught early.
+- Reducing manual, repetitive work for developers and operations.
+- Speeding up the delivery cycle, allowing faster updates and improvements.
+
+When we talk about a **CI/CD pipeline**, we’re describing a connected series of steps that start with a code change in a repository (like GitHub) and end with that updated code being deployed and running in an environment (like a container on a server).
+
+---
+
+### Our Example Scenario
+
+In this tutorial, we are focusing on deploying a simple Python web application using a CI/CD pipeline that involves several key tools and platforms:
+
+1. **Git & GitHub**: For version controlling our code and hosting it remotely.
+2. **Jenkins**: An automation server that will run our pipeline steps. It will:
+   - Pull the latest code changes.
+   - Build our Docker image.
+   - Push the Docker image to Docker Hub.
+   - Pull the image back and run it as a container.
+3. **Docker & Docker Hub**: For containerizing our application. Docker Hub is a public registry where we store and retrieve our application’s Docker images.
+
+**The Flow**:
+
+- You make changes to your local code and push them to GitHub.
+- Jenkins polls GitHub regularly. When it detects a new commit (a code update), it triggers a pipeline.
+- That pipeline builds a Docker image of the new application version and pushes it to Docker Hub.
+- Jenkins then deploys this new image as a running container on your server.
+- The updated application is now available to users through the container’s exposed port.
+
+This means every time you push a code change to GitHub, your running application will update automatically without you having to do all the manual steps.
+
+---
+
+### Prerequisites and Setup
+
+We assume a few things:
+
+- You have a machine (like an Ubuntu server or VM) where you will install Java, Git, Jenkins, and Docker.
+- You have a GitHub account (for remote code repository).
+- You have a Docker Hub account (to store built images).
+
+**Why these prerequisites?**  
+Jenkins requires Java to run, Git is necessary for pulling code, and Docker is required to build and run containers. GitHub and Docker Hub are cloud services that will host your code and images respectively.
+
+---
+
 ### Conclusion
 
 In this deep-dive tutorial, you learned how to:
@@ -495,7 +501,7 @@ In this deep-dive tutorial, you learned how to:
 This setup is a basic foundation. In more advanced scenarios, you can incorporate testing frameworks, more complex build steps, different deployment strategies (like Kubernetes), and integrate further DevOps best practices. But as a beginner-friendly introduction, this approach lets you see how code changes can move smoothly from your development environment, through CI/CD automation, into a running production-like environment with minimal manual intervention.
 
 
-**Additional Notes**
+# Additional Notes
 Below is a significantly expanded explanation focusing specifically on the role of Docker and Jenkins within the CI/CD pipeline, why we use them, how they fit together, and how the example usage scenario works. Think of this as an extended background and rationale combined with a more detailed walk-through of each step and tool involved. This should help you—and anyone reading it—develop a deeper understanding of what’s really happening under the hood.
 
 ---
